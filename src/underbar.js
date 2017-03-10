@@ -187,8 +187,11 @@
   _.every = function(collection, iterator) {
     // tip: try re-using reduce() here.
     return _.reduce(collection, (acc, value) => {
+     if(iterator === undefined)
+          return value? acc: false;
      if(!iterator(value))
        return false;
+     return acc; 
     }, true);
     
   };
