@@ -245,6 +245,15 @@
   // like extend, but doesn't ever overwrite a key that already
   // exists in obj
   _.defaults = function(obj) {
+     let objs = arguments
+    let result = obj;
+    _.each( objs, (extObj) => {
+      _.each(extObj, (value, key) => {
+        if(result[key] === undefined)
+          result[key] = value;
+      })
+    });
+    return result;
   };
 
 
