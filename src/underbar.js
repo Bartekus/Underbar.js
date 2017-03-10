@@ -99,6 +99,12 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    let uniqueVals = [];
+    _.each(array, (value) => {
+      if(!uniqueVals.includes(value))
+        uniqueVals.push(value)
+    });
+    return uniqueVals;
   };
 
 
